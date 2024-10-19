@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FurDef>
+    <defName>HuskenXeno_NaturalPlating</defName>
+    <noGraphic>true</noGraphic>
+    <bodyTypeGraphicPaths>
+      <Male>Things/BodyParts/NaturalPlating/OrganicPlate</Male>
+      <Female>Things/BodyParts/NaturalPlating/OrganicPlate</Female>
+      <Hulk>Things/BodyParts/NaturalPlating/OrganicPlate</Hulk>
+      <Fat>Things/BodyParts/NaturalPlating/OrganicPlate</Fat>
+      <Thin>Things/BodyParts/NaturalPlating/OrganicPlate</Thin>
+      <Child>Things/BodyParts/NaturalPlating/OrganicPlate_Child</Child>
+      <Baby>Things/Pawn/Humanlike/Bodies/Naked_Child</Baby><!-- Always covered by swaddled graphic -->
+    </bodyTypeGraphicPaths>
+  </FurDef>
+  
+  
+
+</Defs>

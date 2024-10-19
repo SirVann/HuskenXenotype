@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+    <defName>Husken_Naturalist</defName>
+    <label>naturalist</label>
+    <description>Carriers of this gene are attached to their bodies and will not let anything get in the way.</description>
+    <iconPath>UI/Genes/Gene_Naturalist</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <forcedTraits>
+      <li>
+        <def>Nudist</def>
+      </li>
+      <li>
+        <def>BodyPurist</def>
+      </li>
+    </forcedTraits>
+    <biostatMet>-3</biostatMet>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>Husken_ToxicWeakness</defName>
+    <label>toxic weakness</label>
+    <description>Carriers of this gene are extremeley sensitive to toxines and poisons. Exposure to toxic environment and gas leads to heavy buildup and eventually death.</description>
+    <iconPath>UI/Genes/Gene_ToxicWeakness</iconPath>
+    <displayOrderInCategory>30</displayOrderInCategory>
+    <immuneToToxGasExposure>true</immuneToToxGasExposure>
+    <statOffsets>
+      <ToxicResistance>-3</ToxicResistance>
+    </statOffsets>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>4</biostatMet>
+  </GeneDef>
+
+   <GeneDef>
+        <defName>Husken_MaleOnly</defName>
+        <label>male only</label>
+        <description>Carriers of this gene are always male.</description>
+        <iconPath>UI/Genes/Gene_MaleOnly</iconPath> 
+        <displayCategory>Miscellaneous</displayCategory>
+        <geneClass>HuskenXeno.Gene_AlwaysMale</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
+    </GeneDef>
+	
+	<GeneDef ParentName="GeneTailBase">
+    <defName>Husken_FlangedTail</defName>
+    <label>flanged tail</label>
+    <description>Carriers of this gene grow a slender tail that can act as a dexterous fifth limb.</description>
+    <iconPath>UI/Genes/Gene_FlangedTail</iconPath>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayOrderInCategory>1000</displayOrderInCategory>
+	<geneClass>HuskenXeno.Gene_HediffAdder</geneClass>
+	
+    <capMods>
+      <li>
+        <capacity>Manipulation</capacity>
+        <offset>0.05</offset>
+      </li>
+    </capMods>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+	
+        <modExtensions>
+            <li Class="HuskenXeno.HediffAdderExtension">
+                <hediffsToApply>
+            <li> <!--Each hediff needs a new li-->
+                <bodyParts> <!--This is optional. Usually used if you need to attach claws to the hands-->
+                  <li>Head</li>
+              </bodyParts>
+                  <hediff>Husken_FlangedTail</hediff>
+                  <severity>1</severity> 
+                  </li>
+               </hediffsToApply>
+            </li>
+        </modExtensions>
+	
+    <renderNodeProperties>
+      <li>
+        <workerClass>PawnRenderNodeWorker_AttachmentBody</workerClass>
+        <texPath>Things/BodyParts/FlangedTail/FlangedTail</texPath>
+        <colorType>Skin</colorType>
+        <overrideMeshSize>(1, 1)</overrideMeshSize>
+        <parentTagDef>Body</parentTagDef>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
+          <defaultData>
+            <layer>0</layer>
+          </defaultData>
+          <dataNorth>
+            <offset>(-0.27, 0, -0.6)</offset>
+            <layer>90</layer>
+          </dataNorth>
+          <dataSouth>
+            <offset>(-0, 0, -0.15)</offset>
+          </dataSouth>
+          <dataEast>
+            <offset>(-0.65, 0, -0.4)</offset>
+			<layer>90</layer>
+          </dataEast>
+          <dataWest>
+            <offset>(0.65, 0, -0.4)</offset>
+			<layer>90</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    </GeneDef>
+
+    <GeneDef>
+    <defName>Husken_HuskenHead</defName>
+    <label>spiky head</label>
+    <description>Carriers of this gene have a thick horned skull arboring a large crest. It renders them unable to wear headgear.</description>
+    <iconPath>UI/Genes/Gene_HuskenHead</iconPath> 
+    <displayCategory>Miscellaneous</displayCategory>
+		
+    <forcedHeadTypes>
+      <li>HuskenXeno_Husken_Head_Male</li>
+      <li>HuskenXeno_Husken_Head_Female</li>
+    </forcedHeadTypes>
+	
+	<customEffectDescriptions>
+      <li>-30% damages on the head</li>
+	  <li>Cannot wear any headgear</li>
+    </customEffectDescriptions>
+	
+    <hairTagFilter>
+      <whitelist>true</whitelist>
+      <tags>
+        <li>Bald</li>
+      </tags>
+    </hairTagFilter>
+	
+    <beardTagFilter>
+      <whitelist>true</whitelist>
+      <tags>
+        <li>NoBeard</li>
+      </tags>
+    </beardTagFilter>
+	
+    <displayOrderInCategory>90</displayOrderInCategory>
+        <modExtensions>
+            <li Class="HuskenXeno.EquipRestrictLiteExtension">
+                <restrictedLayers>
+                    <li>Overhead</li> <!--If another mod adds ApparelLayerDefs related to the head, they should be added to this list-->
+                </restrictedLayers>
+            </li>
+			
+            <li Class="HuskenXeno.LocalizedArmorExtension">
+                <bodyPartGroups>
+                    <li>FullHead</li>
+                    <li>Neck</li>
+                </bodyPartGroups>
+                <damageFactor>0.7</damageFactor>
+            </li>
+			
+            <li Class="HuskenXeno.DesiccatedOverrideExtension">
+               <head>Things/BodyParts/HuskenHead/HuskenHead_Skull</head>
+            </li>
+        </modExtensions>
+    </GeneDef>
+
+    <GeneDef>
+        <defName>Husken_NaturalPlating</defName>
+        <label>organic plating</label>
+        <description>Carriers of this gene grow a natural set of plates forming on their bodies making them incredibly resistant. It renders them unable to wear anything.</description>
+        <iconPath>UI/Genes/Gene_NaturalPlating</iconPath>
+        <displayCategory>Miscellaneous</displayCategory>
+		<bodyType>Hulk</bodyType>
+		
+    <fur>HuskenXeno_NaturalPlating</fur>
+	<skinIsHairColor>false</skinIsHairColor>
+    <tattoosVisible>false</tattoosVisible>
+    <renderNodeProperties>
+      <li>
+        <debugLabel>Fur</debugLabel>
+        <nodeClass>HuskenXeno.PawnRenderNode_BetterFurNode</nodeClass>
+        <workerClass>PawnRenderNodeWorker_Fur</workerClass>
+        <baseLayer>5</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <colorType>Skin</colorType>
+        <parentTagDef>Body</parentTagDef>
+      </li>
+    </renderNodeProperties>
+	
+	<customEffectDescriptions>
+	  <li>Cannot wear any clothes</li>
+    </customEffectDescriptions>
+	
+        <statOffsets>
+      <ArmorRating_Sharp>1.06</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.54</ArmorRating_Heat>
+      <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>10</Insulation_Heat>
+        </statOffsets>
+		
+        <modExtensions>
+            <li Class="HuskenXeno.EquipRestrictLiteExtension">
+                <restrictedLayers>
+                    <li>OnSkin</li>
+                    <li>Middle</li>
+                    <li>Shell</li>
+                    <li>Belt</li>
+                </restrictedLayers>
+                <layerEquipExceptions>
+                    <li>Apparel_Bandolier</li> <!--If you want to make something still equippable despite the layer, add them to this list-->
+                    <li>Apparel_Sash</li>
+                </layerEquipExceptions>
+            </li>
+        </modExtensions>
+    </GeneDef>
+
+    <GeneDef>
+        <defName>Husken_BovineImplanter</defName>
+        <label>bovine implanter</label>
+        <description>Carriers of this gene can only reproduce by injecting genetic code into a bovine which almost instantly forms into a baby.</description>
+        <iconPath>UI/Genes/Gene_BovineImplanter</iconPath>
+        <displayCategory>Miscellaneous</displayCategory>
+        <statFactors>
+            <Fertility>0</Fertility>
+        </statFactors>
+        <abilities>
+            <li>Husken_BovineImplanter</li>
+        </abilities>
+    </GeneDef>
+
+    <AbilityDef>
+        <defName>Husken_BovineImplanter</defName>
+        <label>bovine implanter</label>
+        <description>Inject genetic code into a bovine which almost instantly forms into a baby, and kills the bovine in the process.</description>
+        <iconPath>UI/Icons/Genes/Gene_HairColor</iconPath>
+        <cooldownTicksRange>60000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>4.9</range>
+            <warmupTime>0.5</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+        </verbProperties>
+        <comps>
+            <li Class="HuskenXeno.CompProperties_AbilityRiseFromTheBovine">
+                <validPawnKinds> <!--If there are other variations of bovines that should be included, add their PawnKindDef's defName here-->
+                    <li>Cow</li>
+                </validPawnKinds>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <GeneDef>
+        <defName>Husken_Dendrovore</defName>
+        <label>dendrovore</label>
+        <description>Carriers of this gene eat logs and trees instead of normal food.</description>
+        <iconPath>UI/Icons/Genes/Gene_Dendrovore</iconPath>
+        <displayCategory>Miscellaneous</displayCategory>
+        <geneClass>HuskenXeno.Gene_Dendrovore</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
+    </GeneDef>
+
+    <!--Other than the report string, these jobs cannot have any changes or errors will occur-->
+    <JobDef> 
+        <defName>Husken_Dendrovore</defName> 
+        <driverClass>HuskenXeno.JobDriver_Dendrovore</driverClass>
+        <reportString>consuming TargetA.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>Husken_DendrovoreDeliver</defName>
+        <driverClass>HuskenXeno.JobDriver_DendrovoreDeliver</driverClass>
+        <reportString>feeding TargetA to TargetB.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+    
+    <JobDef>
+        <defName>Husken_DendrovoreFeed</defName>
+        <driverClass>HuskenXeno.JobDriver_FoodFeedDendrovorePatient</driverClass>
+        <reportString>feeding TargetA to TargetB.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>

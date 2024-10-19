@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef>
+    <defName>Husken_FlangedTail</defName>
+    <label>Flanged Tail</label>
+    <description>A pair of metal knuckle dusters. They concentrate the force of a punch into a smaller area, which results in more damage.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <comps>
+        <li Class="HediffCompProperties_VerbGiver">
+            <tools>
+                <li>
+                  <label>flanged tail</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>17</power>
+                  <soundMeleeHit>MeleeHit_Metal_Blunt</soundMeleeHit>
+                  <cooldownTime>1.9</cooldownTime>
+                </li>
+            </tools>
+        </li>  
+    </comps>
+    <addedPartProps>
+        <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <isBad>false</isBad>
+  </HediffDef>
+  
+  
+</Defs>

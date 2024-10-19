@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<HeadTypeDef ParentName="AverageBase">
+		<defName>HuskenXeno_Husken_Head_Male</defName>
+		<graphicPath>Things/BodyParts/HuskenHead/HuskenHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>Male</gender>
+		<requiredGenes>
+			<li>Husken_HuskenHead</li>
+		</requiredGenes>
+	</HeadTypeDef>
+
+	<HeadTypeDef ParentName="AverageBase">
+		<defName>HuskenXeno_Husken_Head_Female</defName>
+		<graphicPath>Things/BodyParts/HuskenHead/HuskenHead</graphicPath>
+		<randomChosen>false</randomChosen>
+		<gender>Female</gender>
+		<requiredGenes>
+			<li>Husken_HuskenHead</li>
+		</requiredGenes>
+	</HeadTypeDef>
+	
+</Defs>

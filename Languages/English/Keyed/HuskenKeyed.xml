@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <Husken_RestrictedLayer>{0} restricts the {1} layer.</Husken_RestrictedLayer>
+    <Husken_MustBeBovine>Must be a bovine</Husken_MustBeBovine>
+    <Husken_ChildFormed>Child formed</Husken_ChildFormed>
+    <Husken_ChildFormedDescription>{0} injected their genes into a bovine to create a child, which must now be named.</Husken_ChildFormedDescription>
+    <Husken_Consuming>Consuming {0}</Husken_Consuming>
+    <Husken_MessageCaravanRanOutOfDendrovoreFood>{0} has run out of wood for a dendrovore.</Husken_MessageCaravanRanOutOfDendrovoreFood>
+    <Husken_ConsumeWood>Consume {0}</Husken_ConsumeWood>
+    <Husken_CannotConsumeForbidden>Cannot consume {0} : Forbidden</Husken_CannotConsumeForbidden>
+</LanguageData>

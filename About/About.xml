@@ -1,0 +1,26 @@
+<ModMetaData>
+	<name>Husken Xenotype</name>
+	<author>Sir Van, Alite</author>
+	<supportedVersions>
+		<li>1.4</li>
+		<li>1.5</li>
+	</supportedVersions>
+	<modDependencies>
+	    <li>
+		    <packageId>Ludeon.RimWorld.Biotech</packageId>
+		    <displayName>Biotech</displayName>
+	    </li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>brrainz.harmony</li>
+	</loadAfter>
+	
+	<packageId>VanAlite.Husken</packageId>
+	<description>desc</description>
+	
+	
+</ModMetaData>
