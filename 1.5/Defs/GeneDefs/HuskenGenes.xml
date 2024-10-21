@@ -137,7 +137,7 @@
     <displayCategory>Miscellaneous</displayCategory>
     <biostatCpx>1</biostatCpx>
     <biostatMet>-1</biostatMet>
-		
+	<geneClass>HuskenXeno.Gene_EquipRestrictLite</geneClass>
     <forcedHeadTypes>
       <li>HuskenXeno_Husken_Head_Male</li>
       <li>HuskenXeno_Husken_Head_Female</li>
@@ -199,7 +199,7 @@
 		
     <biostatCpx>1</biostatCpx>
     <biostatMet>-2</biostatMet>
-		
+	<geneClass>HuskenXeno.Gene_EquipRestrictLite</geneClass>
     <fur>HuskenXeno_NaturalPlating</fur>
 	<skinIsHairColor>false</skinIsHairColor>
     <tattoosVisible>false</tattoosVisible>
