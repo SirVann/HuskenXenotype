@@ -7,7 +7,14 @@
     <description>A pair of metal knuckle dusters. They concentrate the force of a punch into a smaller area, which results in more damage.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <scenarioCanAdd>false</scenarioCanAdd>
+	
     <maxSeverity>1.0</maxSeverity>
+	<stages>
+	 <li>
+	      <becomeVisible>false</becomeVisible>
+	 </li>
+	</stages>
+	
     <comps>
         <li Class="HediffCompProperties_VerbGiver">
             <tools>
@@ -16,9 +23,10 @@
                   <capacities>
                     <li>Blunt</li>
                   </capacities>
-                  <power>17</power>
+                  <power>24</power>
+				  <armorPenetration>0.3</armorPenetration>
                   <soundMeleeHit>MeleeHit_Metal_Blunt</soundMeleeHit>
-                  <cooldownTime>1.9</cooldownTime>
+                  <cooldownTime>2.5</cooldownTime>
                 </li>
             </tools>
         </li>  

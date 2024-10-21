@@ -2,6 +2,28 @@
 <Defs>
 
   <GeneDef>
+    <defName>Husken_PerfectTolerance</defName>
+    <label>perfect tolerance</label>
+    <description>Carriers of this gene can easily adapt to all temperatures.</description>
+    <iconPath>UI/Genes/Gene_PerfectTemperature</iconPath>
+	<displayCategory>Temperature</displayCategory>
+    <displayOrderInCategory>90</displayOrderInCategory>
+    <statOffsets>
+      <ComfyTemperatureMin>-20</ComfyTemperatureMin>
+	  <ComfyTemperatureMax>20</ComfyTemperatureMax>
+    </statOffsets>
+
+    <exclusionTags>
+      <li>MaxTemperature</li>
+	  <li>MinTemperature</li>
+    </exclusionTags>
+	
+    <biostatMet>-4</biostatMet>
+    <symbolPack>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef>
     <defName>Husken_Naturalist</defName>
     <label>naturalist</label>
     <description>Carriers of this gene are attached to their bodies and will not let anything get in the way.</description>
@@ -15,14 +37,15 @@
         <def>BodyPurist</def>
       </li>
     </forcedTraits>
-    <biostatMet>-3</biostatMet>
+    <biostatMet>3</biostatMet>
   </GeneDef>
 
-  <GeneDef>
+  <GeneDef ParentName="GeneImmunityBase">
     <defName>Husken_ToxicWeakness</defName>
     <label>toxic weakness</label>
-    <description>Carriers of this gene are extremeley sensitive to toxines and poisons. Exposure to toxic environment and gas leads to heavy buildup and eventually death.</description>
+    <description>Carriers of this gene are extremely sensitive to toxins and poisons. Exposure to toxic environment and gas leads to heavy buildup and eventually death.</description>
     <iconPath>UI/Genes/Gene_ToxicWeakness</iconPath>
+	<displayCategory>ResistanceAndWeakness</displayCategory>
     <displayOrderInCategory>30</displayOrderInCategory>
     <immuneToToxGasExposure>true</immuneToToxGasExposure>
     <statOffsets>
@@ -39,25 +62,24 @@
         <iconPath>UI/Genes/Gene_MaleOnly</iconPath> 
         <displayCategory>Miscellaneous</displayCategory>
         <geneClass>HuskenXeno.Gene_AlwaysMale</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
+		<biostatCpx>1</biostatCpx>
+        <biostatMet>-1</biostatMet>
     </GeneDef>
 	
 	<GeneDef ParentName="GeneTailBase">
     <defName>Husken_FlangedTail</defName>
     <label>flanged tail</label>
-    <description>Carriers of this gene grow a slender tail that can act as a dexterous fifth limb.</description>
+    <description>Carriers of this gene grow a tail with a large reinforced mace at the end which they can use as a weapon.</description>
     <iconPath>UI/Genes/Gene_FlangedTail</iconPath>
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
     <displayOrderInCategory>1000</displayOrderInCategory>
 	<geneClass>HuskenXeno.Gene_HediffAdder</geneClass>
-	
-    <capMods>
-      <li>
-        <capacity>Manipulation</capacity>
-        <offset>0.05</offset>
-      </li>
-    </capMods>
     <biostatCpx>1</biostatCpx>
     <biostatMet>-1</biostatMet>
+	
+	<customEffectDescriptions>
+      <li>Can perform a special attack</li>
+    </customEffectDescriptions>
 	
         <modExtensions>
             <li Class="HuskenXeno.HediffAdderExtension">
@@ -108,10 +130,13 @@
 
     <GeneDef>
     <defName>Husken_HuskenHead</defName>
-    <label>spiky head</label>
-    <description>Carriers of this gene have a thick horned skull arboring a large crest. It renders them unable to wear headgear.</description>
+    <label>crested head</label>
+    <description>Carriers of this gene have a thick horned skull arboring a large crest that protects them. It renders them unable to wear headgear.</description>
     <iconPath>UI/Genes/Gene_HuskenHead</iconPath> 
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
     <displayCategory>Miscellaneous</displayCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
 		
     <forcedHeadTypes>
       <li>HuskenXeno_Husken_Head_Male</li>
@@ -126,9 +151,13 @@
     <hairTagFilter>
       <whitelist>true</whitelist>
       <tags>
-        <li>Bald</li>
+        <li>HairStyle</li>
       </tags>
     </hairTagFilter>
+	
+    <exclusionTags>
+      <li>HairStyle</li>
+    </exclusionTags>
 	
     <beardTagFilter>
       <whitelist>true</whitelist>
@@ -160,12 +189,16 @@
     </GeneDef>
 
     <GeneDef>
-        <defName>Husken_NaturalPlating</defName>
-        <label>organic plating</label>
-        <description>Carriers of this gene grow a natural set of plates forming on their bodies making them incredibly resistant. It renders them unable to wear anything.</description>
-        <iconPath>UI/Genes/Gene_NaturalPlating</iconPath>
-        <displayCategory>Miscellaneous</displayCategory>
-		<bodyType>Hulk</bodyType>
+     <defName>Husken_NaturalPlating</defName>
+    <label>organic plating</label>
+    <description>Carriers of this gene grow a natural set of bulky plates that covers their entire body making them incredibly resistant. It renders them unable to wear anything.</description>
+    <iconPath>UI/Genes/Gene_NaturalPlating</iconPath>
+	<iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <displayCategory>Miscellaneous</displayCategory>
+	<bodyType>Hulk</bodyType>
+		
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-2</biostatMet>
 		
     <fur>HuskenXeno_NaturalPlating</fur>
 	<skinIsHairColor>false</skinIsHairColor>
@@ -228,7 +261,7 @@
         <defName>Husken_BovineImplanter</defName>
         <label>bovine implanter</label>
         <description>Inject genetic code into a bovine which almost instantly forms into a baby, and kills the bovine in the process.</description>
-        <iconPath>UI/Icons/Genes/Gene_HairColor</iconPath>
+        <iconPath>UI/Genes/Gene_BovineImplanter</iconPath>
         <cooldownTicksRange>60000</cooldownTicksRange>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -240,6 +273,9 @@
             <li Class="HuskenXeno.CompProperties_AbilityRiseFromTheBovine">
                 <validPawnKinds> <!--If there are other variations of bovines that should be included, add their PawnKindDef's defName here-->
                     <li>Cow</li>
+					<li>Muffalo</li>
+					<li>Yak</li>
+					<li>Bison</li>
                 </validPawnKinds>
             </li>
         </comps>
@@ -249,9 +285,11 @@
         <defName>Husken_Dendrovore</defName>
         <label>dendrovore</label>
         <description>Carriers of this gene eat logs and trees instead of normal food.</description>
-        <iconPath>UI/Icons/Genes/Gene_Dendrovore</iconPath>
+        <iconPath>UI/Genes/Gene_Dendrovore</iconPath>
         <displayCategory>Miscellaneous</displayCategory>
         <geneClass>HuskenXeno.Gene_Dendrovore</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
+		<biostatCpx>1</biostatCpx>
+        <biostatMet>2</biostatMet>
     </GeneDef>
 
     <!--Other than the report string, these jobs cannot have any changes or errors will occur-->
@@ -275,5 +313,30 @@
         <reportString>feeding TargetA to TargetB.</reportString>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
+	
+	<!--Skin Colors-->
 
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>Husken_Skin_Colour_FadedBlue</defName>
+    <label>faded blue skin</label>
+    <description>Carriers of this gene produce a pigment that gives their skin a faded blue color.</description>
+    <skinColorOverride>(113,128,170)</skinColorOverride>
+    <displayOrderInCategory>0</displayOrderInCategory>
+  </GeneDef>
+  
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>Husken_Skin_Colour_FadedGreen</defName>
+    <label>faded green skin</label>
+    <description>Carriers of this gene produce a pigment that gives their skin a faded green color.</description>
+    <skinColorOverride>(116,132,111)</skinColorOverride>
+    <displayOrderInCategory>0</displayOrderInCategory>
+  </GeneDef>
+  
+    <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>Husken_Skin_Colour_FadedPurple</defName>
+    <label>faded purple skin</label>
+    <description>Carriers of this gene produce a pigment that gives their skin a faded purple color.</description>
+    <skinColorOverride>(114,98,124)</skinColorOverride>
+    <displayOrderInCategory>0</displayOrderInCategory>
+  </GeneDef>
 </Defs>
