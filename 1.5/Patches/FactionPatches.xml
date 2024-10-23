@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+<!-- TribeCivil -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeCivil"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeCivil"]</xpath>
+			<value>
+				<xenotypeSet />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeCivil"]/xenotypeSet/xenotypeChances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeCivil"]/xenotypeSet</xpath>
+			<value>
+				<xenotypeChances />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName="TribeCivil"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<HuskenXeno_Husken>0.02</HuskenXeno_Husken>
+		</value>
+	</Operation>
+	
+	<!-- TribeRough -->
+	
+		<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeRough"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeRough"]</xpath>
+			<value>
+				<xenotypeSet />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeRough"]/xenotypeSet/xenotypeChances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeRough"]/xenotypeSet</xpath>
+			<value>
+				<xenotypeChances />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName="TribeRough"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<HuskenXeno_Husken>0.02</HuskenXeno_Husken>
+		</value>
+	</Operation>
+	
+	<!-- TribeSavage -->
+	
+		<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeSavage"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeSavage"]</xpath>
+			<value>
+				<xenotypeSet />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeSavage"]/xenotypeSet/xenotypeChances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeSavage"]/xenotypeSet</xpath>
+			<value>
+				<xenotypeChances />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName="TribeSavage"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<HuskenXeno_Husken>0.02</HuskenXeno_Husken>
+		</value>
+	</Operation>
+	
+</Patch>

@@ -74,6 +74,7 @@
     <iconColor>(0.75, 0.75, 0.75)</iconColor>
     <displayOrderInCategory>1000</displayOrderInCategory>
 	<geneClass>HuskenXeno.Gene_HediffAdder</geneClass>
+	<minAgeActive>13</minAgeActive>
     <biostatCpx>1</biostatCpx>
     <biostatMet>-1</biostatMet>
 	
@@ -106,14 +107,14 @@
         <drawData>
           <scaleOffsetByBodySize>true</scaleOffsetByBodySize>
           <defaultData>
-            <layer>0</layer>
+            <layer>-5</layer>
           </defaultData>
           <dataNorth>
             <offset>(-0.27, 0, -0.6)</offset>
             <layer>90</layer>
           </dataNorth>
           <dataSouth>
-            <offset>(-0, 0, -0.15)</offset>
+            <offset>(0.05, 0, -0.25)</offset>
           </dataSouth>
           <dataEast>
             <offset>(-0.65, 0, -0.4)</offset>
@@ -144,10 +145,11 @@
     </forcedHeadTypes>
 	
 	<customEffectDescriptions>
-      <li>-30% damages on the head</li>
+      <li>Head damage x70%</li>
 	  <li>Cannot wear any headgear</li>
     </customEffectDescriptions>
-	
+	<missingGeneRomanceChanceFactor>0.2</missingGeneRomanceChanceFactor>
+    
     <hairTagFilter>
       <whitelist>true</whitelist>
       <tags>
@@ -220,9 +222,9 @@
     </customEffectDescriptions>
 	
         <statOffsets>
-      <ArmorRating_Sharp>1.06</ArmorRating_Sharp>
-      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
-      <ArmorRating_Heat>0.54</ArmorRating_Heat>
+      <ArmorRating_Sharp>1.3</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.50</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.60</ArmorRating_Heat>
       <Insulation_Cold>10</Insulation_Cold>
       <Insulation_Heat>10</Insulation_Heat>
         </statOffsets>
@@ -233,12 +235,15 @@
                     <li>OnSkin</li>
                     <li>Middle</li>
                     <li>Shell</li>
-                    <li>Belt</li>
                 </restrictedLayers>
                 <layerEquipExceptions>
                     <li>Apparel_Bandolier</li> <!--If you want to make something still equippable despite the layer, add them to this list-->
                     <li>Apparel_Sash</li>
                 </layerEquipExceptions>
+            </li>
+			
+            <li Class="HuskenXeno.DesiccatedOverrideExtension">
+               <hulk>Things/BodyParts/NaturalPlating/OrganicPlateDessicated</hulk>
             </li>
         </modExtensions>
     </GeneDef>
@@ -249,6 +254,7 @@
         <description>Carriers of this gene can only reproduce by injecting genetic code into a bovine which almost instantly forms into a baby.</description>
         <iconPath>UI/Genes/Gene_BovineImplanter</iconPath>
         <displayCategory>Miscellaneous</displayCategory>
+		<minAgeActive>13</minAgeActive>
         <statFactors>
             <Fertility>0</Fertility>
         </statFactors>
@@ -262,7 +268,7 @@
         <label>bovine implanter</label>
         <description>Inject genetic code into a bovine which almost instantly forms into a baby, and kills the bovine in the process.</description>
         <iconPath>UI/Genes/Gene_BovineImplanter</iconPath>
-        <cooldownTicksRange>60000</cooldownTicksRange>
+        <cooldownTicksRange>3600000</cooldownTicksRange>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
             <range>4.9</range>

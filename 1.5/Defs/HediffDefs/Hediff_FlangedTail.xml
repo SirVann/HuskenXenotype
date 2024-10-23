@@ -4,7 +4,7 @@
   <HediffDef>
     <defName>Husken_FlangedTail</defName>
     <label>Flanged Tail</label>
-    <description>A pair of metal knuckle dusters. They concentrate the force of a punch into a smaller area, which results in more damage.</description>
+    <description>You shouldn't be able to read that.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <scenarioCanAdd>false</scenarioCanAdd>
 	
@@ -36,6 +36,5 @@
     </addedPartProps>
     <isBad>false</isBad>
   </HediffDef>
-  
   
 </Defs>
