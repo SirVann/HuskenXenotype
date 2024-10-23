@@ -10,3 +10,9 @@
 /home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXeno/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.csproj.CoreCompileInputs.cache
 /home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXeno/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.dll
 /home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXeno/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.pdb
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Assemblies/HuskenXeno.dll
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Assemblies/HuskenXeno.pdb
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.csproj.AssemblyReference.cache
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.csproj.CoreCompileInputs.cache
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.dll
+/home/robert/.steam/debian-installation/steamapps/common/RimWorld/Mods/HuskenXenotype/1.5/Source/HuskenXeno/obj/Debug/HuskenXeno.pdb

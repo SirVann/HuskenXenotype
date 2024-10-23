@@ -1,7 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="../Source/HuskenXeno/HarmonyPatches.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../Source/HuskenXeno/HediffComp_BovineImplant.cs">
     <Files>
       <File FileName="../Source/HuskenXeno/HarmonyPatches.cs" Line="116" Column="10" />
+      <File FileName="../Source/HuskenXeno/CompAbilityEffect_RiseFromTheBovine.cs" Line="50" Column="1" />
+      <File FileName="../Source/HuskenXeno/CompProperties_AbilityBovineImplant.cs" Line="7" Column="53" />
+      <File FileName="../Source/HuskenXeno/CompAbilityEffect_BovineImplant.cs" Line="37" Column="74" />
+      <File FileName="../Source/HuskenXeno/HediffCompProperties_BovineImplant.cs" Line="8" Column="33" />
+      <File FileName="../Source/HuskenXeno/HediffComp_BovineImplant.cs" Line="28" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

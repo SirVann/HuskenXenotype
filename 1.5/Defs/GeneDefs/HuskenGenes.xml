@@ -269,6 +269,9 @@
         <description>Inject genetic code into a bovine which almost instantly forms into a baby, and kills the bovine in the process.</description>
         <iconPath>UI/Genes/Gene_BovineImplanter</iconPath>
         <cooldownTicksRange>3600000</cooldownTicksRange>
+        <statBases>
+          <Ability_Duration>168</Ability_Duration> <!--4 Hours-->
+        </statBases>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
             <range>4.9</range>
@@ -276,16 +279,37 @@
             <requireLineOfSight>False</requireLineOfSight>
         </verbProperties>
         <comps>
-            <li Class="HuskenXeno.CompProperties_AbilityRiseFromTheBovine">
+            <li Class="HuskenXeno.CompProperties_AbilityBovineImplant">
                 <validPawnKinds> <!--If there are other variations of bovines that should be included, add their PawnKindDef's defName here-->
-                    <li>Cow</li>
-					<li>Muffalo</li>
-					<li>Yak</li>
-					<li>Bison</li>
+                  <li>Cow</li>
+                  <li>Muffalo</li>
+                  <li>Yak</li>
+                  <li>Bison</li>
                 </validPawnKinds>
+                <hediffDef>Husken_BovineImpant</hediffDef>
             </li>
         </comps>
     </AbilityDef>
+
+    <HediffDef>
+      <defName>Husken_BovineImpant</defName>
+      <label>bovine implant</label>
+      <description>This bovine will have a pawn bursting out of it soon.</description>
+      <hediffClass>HediffWithComps</hediffClass>
+      <scenarioCanAdd>false</scenarioCanAdd>
+      <maxSeverity>1.0</maxSeverity>
+      <comps>
+        <li Class="HediffCompProperties_Disappears">
+          <disappearsAfterTicks>10000</disappearsAfterTicks> <!--This just can't be 0. It should be overriden by the ability-->
+          <showRemainingTime>true</showRemainingTime>
+        </li>
+        <li Class="HuskenXeno.HediffCompProperties_BovineImplant">
+          <!-- <lostOnDeath>True</lostOnDeath> --><!-- Uncomment if you want the hediff to vanish on bovine death without effect -->
+        </li>
+        <!--When the hediff is removed, the implanted pawn will burst out. By default, if the cow dies early the gestation will just be paused until the corpse is revived or destroyed-->
+      </comps>
+    </HediffDef>
+
 
     <GeneDef>
         <defName>Husken_Dendrovore</defName>

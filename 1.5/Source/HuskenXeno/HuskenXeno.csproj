@@ -61,6 +61,10 @@
     <Compile Include="HediffAdderExtension.cs" />
     <Compile Include="HediffsToParts.cs" />
     <Compile Include="Gene_EquipRestrictLite.cs" />
+    <Compile Include="CompProperties_AbilityBovineImplant.cs" />
+    <Compile Include="CompAbilityEffect_BovineImplant.cs" />
+    <Compile Include="HediffCompProperties_BovineImplant.cs" />
+    <Compile Include="HediffComp_BovineImplant.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
