@@ -89,6 +89,41 @@ namespace HuskenXeno
                 postfix: new HarmonyMethod(patchType, nameof(GraphicForBodyPostfix)));
             harmony.Patch(AccessTools.Method(typeof(DamageWorker_AddInjury), "GetExactPartFromDamageInfo"),
                 postfix: new HarmonyMethod(patchType, nameof(GetExactPartFromDamageInfoPostfix)));
+            harmony.Patch(AccessTools.Method(typeof(MentalState_SocialFighting), "PostEnd"),
+                postfix: new HarmonyMethod(patchType, nameof(SocialFightEndPostfix)));
+        }
+
+        public static void SocialFightEndPostfix(Pawn ___pawn, Pawn ___otherPawn)
+        {
+            if (___pawn.genes?.GetFirstGeneOfType<Gene_SocialFightLover>() != null)
+            {
+                int fightCount = ___pawn.needs.mood.thoughts.memories.NumMemoriesOfDef(ThoughtDefOf.HadAngeringFight);
+                if (fightCount > 1)
+                {
+                    List<Thought_Memory> memories = new List<Thought_Memory>(___pawn.needs.mood.thoughts.memories.Memories);
+                    memories.Reverse();
+                    foreach (Thought_Memory memory in memories)
+                        if (memory.def == ThoughtDefOf.HadAngeringFight && memory.otherPawn == ___otherPawn)
+                        {
+                            ___pawn.needs.mood.thoughts.memories.RemoveMemory(memory);
+                            ___pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.HadCatharticFight, ___otherPawn);
+                            // Removes harmed me because this pawn loves the fight
+                            ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
+                            break;
+                        }
+                }
+                else if (fightCount == 1)
+                {
+                    Thought_Memory memory = ___pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(ThoughtDefOf.HadAngeringFight);
+                    if (memory != null && memory.otherPawn == ___otherPawn)
+                    {
+                        ___pawn.needs.mood.thoughts.memories.RemoveMemory(memory);
+                        ___pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.HadCatharticFight, ___otherPawn);
+                        // Removes harmed me because this pawn loves the fight
+                        ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
+                    }
+                }
+            }
         }
 
         public static void GetExactPartFromDamageInfoPostfix(BodyPartRecord __result, ref DamageInfo dinfo, Pawn pawn)

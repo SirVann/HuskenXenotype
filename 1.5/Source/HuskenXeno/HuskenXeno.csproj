@@ -65,6 +65,7 @@
     <Compile Include="CompAbilityEffect_BovineImplant.cs" />
     <Compile Include="HediffCompProperties_BovineImplant.cs" />
     <Compile Include="HediffComp_BovineImplant.cs" />
+    <Compile Include="Gene_SocialFightLover.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

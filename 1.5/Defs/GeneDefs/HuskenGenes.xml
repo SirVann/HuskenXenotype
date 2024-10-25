@@ -318,8 +318,19 @@
         <iconPath>UI/Genes/Gene_Dendrovore</iconPath>
         <displayCategory>Miscellaneous</displayCategory>
         <geneClass>HuskenXeno.Gene_Dendrovore</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
-		<biostatCpx>1</biostatCpx>
+		    <biostatCpx>1</biostatCpx>
         <biostatMet>2</biostatMet>
+    </GeneDef>
+
+    <GeneDef>
+      <defName>Husken_SocialFightLover</defName>
+      <label>social fight lover</label>
+      <description>Carriers of this gene always find social fights cathartic.</description>
+      <iconPath>UI/Genes/Gene_Dendrovore</iconPath>
+      <displayCategory>Miscellaneous</displayCategory>
+      <geneClass>HuskenXeno.Gene_SocialFightLover</geneClass> <!--If you want the effect to be part of a different gene, this class is the only thing that is required-->
+      <biostatCpx>1</biostatCpx>
+      <biostatMet>-2</biostatMet>
     </GeneDef>
 
     <!--Other than the report string, these jobs cannot have any changes or errors will occur-->
