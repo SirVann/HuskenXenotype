@@ -91,6 +91,15 @@ namespace HuskenXeno
                 postfix: new HarmonyMethod(patchType, nameof(GetExactPartFromDamageInfoPostfix)));
             harmony.Patch(AccessTools.Method(typeof(MentalState_SocialFighting), "PostEnd"),
                 postfix: new HarmonyMethod(patchType, nameof(SocialFightEndPostfix)));
+            harmony.Patch(AccessTools.Method(typeof(PawnGenerator), "GeneratePawnRelations"),
+                prefix: new HarmonyMethod(patchType, nameof(GeneratePawnRelationsPrefix)));
+        }
+
+        public static bool GeneratePawnRelationsPrefix(Pawn pawn)
+        {
+            if (pawn.genes?.GetFirstGeneOfType<Gene_AlwaysMale>() != null)
+                return false;
+            return true;
         }
 
         public static void SocialFightEndPostfix(Pawn ___pawn, Pawn ___otherPawn)
