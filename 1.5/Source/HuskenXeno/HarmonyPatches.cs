@@ -115,9 +115,6 @@ namespace HuskenXeno
                         if (memory.def == ThoughtDefOf.HadAngeringFight && memory.otherPawn == ___otherPawn)
                         {
                             ___pawn.needs.mood.thoughts.memories.RemoveMemory(memory);
-                            ___pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.HadCatharticFight, ___otherPawn);
-                            // Removes harmed me because this pawn loves the fight
-                            ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
                             break;
                         }
                 }
@@ -125,13 +122,11 @@ namespace HuskenXeno
                 {
                     Thought_Memory memory = ___pawn.needs.mood.thoughts.memories.GetFirstMemoryOfDef(ThoughtDefOf.HadAngeringFight);
                     if (memory != null && memory.otherPawn == ___otherPawn)
-                    {
                         ___pawn.needs.mood.thoughts.memories.RemoveMemory(memory);
-                        ___pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.HadCatharticFight, ___otherPawn);
-                        // Removes harmed me because this pawn loves the fight
-                        ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
-                    }
                 }
+                ___pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.HadCatharticFight, ___otherPawn);
+                // Removes harmed me because this pawn loves the fight
+                ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
                 ___pawn.needs.mood.thoughts.memories.TryGainMemory(HuskenDefOf.Husken_SocialFightLover);
             }
         }
