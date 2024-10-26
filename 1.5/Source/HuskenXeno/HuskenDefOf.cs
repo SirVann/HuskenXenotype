@@ -10,5 +10,6 @@ namespace HuskenXeno
         public static JobDef Husken_DendrovoreDeliver;
         public static JobDef Husken_DendrovoreFeed;
         public static SoundDef Herbivore_Eat;
+        public static ThoughtDef Husken_SocialFightLover;
     }
 }

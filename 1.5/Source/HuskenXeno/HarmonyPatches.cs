@@ -132,6 +132,7 @@ namespace HuskenXeno
                         ___pawn.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(ThoughtDefOf.HarmedMe, ___otherPawn);
                     }
                 }
+                ___pawn.needs.mood.thoughts.memories.TryGainMemory(HuskenDefOf.Husken_SocialFightLover);
             }
         }
 

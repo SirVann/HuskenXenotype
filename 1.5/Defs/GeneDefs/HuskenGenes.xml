@@ -332,6 +332,22 @@
       <biostatMet>4</biostatMet>
     </GeneDef>
 
+    <ThoughtDef>
+      <defName>Husken_SocialFightLover</defName>
+      <validWhileDespawned>true</validWhileDespawned>
+      <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+      <durationDays>0.5</durationDays>
+      <stackLimit>5</stackLimit>
+      <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+      <stages>
+        <li>
+          <label>fighting spirit</label>
+          <description>I had a good spar with some allies.</description>
+          <baseMoodEffect>5</baseMoodEffect>
+        </li>
+      </stages>
+    </ThoughtDef>
+
 
     <GeneDef>
         <defName>Husken_Dendrovore</defName>

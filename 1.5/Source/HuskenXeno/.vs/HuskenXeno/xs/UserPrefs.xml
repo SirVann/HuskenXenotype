@@ -1,9 +1,21 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="../Source/HuskenXeno/HarmonyPatches.cs">
     <Files>
-      <File FileName="../Source/HuskenXeno/HarmonyPatches.cs" Line="114" Column="1" />
+      <File FileName="../Source/HuskenXeno/HarmonyPatches.cs" Line="124" Column="42" />
       <File FileName="../Source/HuskenXeno/Gene_SocialFightLover.cs" Line="5" Column="39" />
+      <File FileName="../Source/HuskenXeno/HuskenDefOf.cs" Line="13" Column="23" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HuskenXeno" expanded="True">
+            <Node name="HuskenXeno" expanded="True">
+              <Node name="HarmonyPatches.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
