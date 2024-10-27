@@ -43,6 +43,8 @@ namespace HuskenXeno
             eatingFromInventory = pawn.inventory != null && pawn.inventory.Contains(IngestibleSource);
         }
 
+
+
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             if (pawn.Faction != null)

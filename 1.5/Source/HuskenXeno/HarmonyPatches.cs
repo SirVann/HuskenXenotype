@@ -300,20 +300,27 @@ namespace HuskenXeno
                         if (thing.IsForbidden(pawn))
                             opts.Add(new FloatMenuOption("Husken_CannotConsumeForbidden".Translate(thing.LabelShort).CapitalizeFirst(), null));
                         else if (thing.def.plant?.IsTree == true)
-                            opts.Add(new FloatMenuOption("Husken_ConsumeWood".Translate(thing.LabelShort), delegate
-                            {
-                                Job job = JobMaker.MakeJob(HuskenDefOf.Husken_Dendrovore, thing);
-                                job.count = 1;
-                                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                            }));
+                        {
+                            if (pawn.CanReserve(thing, 1, 1))
+                                opts.Add(new FloatMenuOption("Husken_ConsumeWood".Translate(thing.LabelShort), delegate
+                                    {
+                                        Job job = JobMaker.MakeJob(HuskenDefOf.Husken_Dendrovore, thing);
+                                        job.count = 1;
+                                        pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                                    }));
+                        }
                         else
-                            opts.Add(new FloatMenuOption("Husken_ConsumeWood".Translate(thing.LabelShort), delegate
-                            {
-                                Job job = JobMaker.MakeJob(HuskenDefOf.Husken_Dendrovore, thing);
-                                // Gets the lower of stack count and nutrition wanted results, and if it's 0 due to the nutrition, sets it to 1
-                                job.count = Mathf.Max(Mathf.Min(thing.stackCount, Mathf.FloorToInt(pawn.needs.food.NutritionWanted / nutritionPerLog)), 1);
-                                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                            }));
+                        {
+                            int count = Mathf.Max(Mathf.Min(thing.stackCount, Mathf.FloorToInt(pawn.needs.food.NutritionWanted / nutritionPerLog)), 1);
+                            if (pawn.CanReserve(thing, 1, count))
+                                opts.Add(new FloatMenuOption("Husken_ConsumeWood".Translate(thing.LabelShort), delegate
+                                {
+                                    Job job = JobMaker.MakeJob(HuskenDefOf.Husken_Dendrovore, thing);
+                                    // Gets the lower of stack count and nutrition wanted results, and if it's 0 due to the nutrition, sets it to 1
+                                    job.count = count;
+                                    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                                }));
+                        }
                     }
                 }
             }
@@ -345,9 +352,11 @@ namespace HuskenXeno
 
         private static bool GetWoodNearPawn(Pawn pawn, out Thing wood)
         {
-            Predicate<Thing> Permitted = delegate (Thing l)
+            Predicate<Thing> Permitted = delegate (Thing t)
             {
-                if (l.IsForbidden(pawn))
+                if (t.IsForbidden(pawn))
+                    return false;
+                if (!pawn.CanReserve(t, 1, Mathf.Max(Mathf.Min(t.stackCount, Mathf.FloorToInt(pawn.needs.food.NutritionWanted / nutritionPerLog)), 1)))
                     return false;
                 return true;
             };
@@ -427,7 +436,7 @@ namespace HuskenXeno
                 };
                 Thing tree = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, treeRequest, PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, Woody);
 
-                if (tree != null)
+                if (tree != null && pawn.CanReserve(tree, 1, 1))
                 {
                     Job job = JobMaker.MakeJob(HuskenDefOf.Husken_Dendrovore, tree);
                     job.count = 1;
